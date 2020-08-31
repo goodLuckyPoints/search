@@ -8,4 +8,4 @@ spring:
     password: admin
     username: admin
 es:
-  hostAndPort: 192.168.194.139:9200
+  hostandport: 192.168.194.139:9200
