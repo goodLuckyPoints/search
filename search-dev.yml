@@ -1,11 +1,23 @@
 server:
   port: 9200
 spring:
+  cloud:
+    stream:
+      bindings:
+        #防止重复队列存在重复消息
+        sms_send_log_topic:                # 队列名称
+          group: search                    # 队列组名称
+      # 实现手动ACK
+      rabbit:
+        bindings:
+          sms_send_log_topic:
+            consumer:
+              acknowledgeMode: MANUAL
   rabbitmq:
-    host: 192.168.194.139
     port: 5672
-    virtual-host: admin
-    password: admin
     username: admin
+    password: admin
+    virtual-host: admin
+    host: 192.168.194.139 
 es:
   hostandport: 192.168.194.139:9200
