@@ -7,3 +7,5 @@ spring:
     virtual-host: admin
     password: admin
     username: admin
+es:
+  hostandport: 192.168.194.139:9200
