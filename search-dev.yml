@@ -7,12 +7,17 @@ spring:
         #防止重复队列存在重复消息
         sms_send_log_topic:                # 队列名称
           group: search                    # 队列组名称
+        report_update_topic:
+          group: search
       # 实现手动ACK
       rabbit:
         bindings:
           sms_send_log_topic:
             consumer:
               acknowledgeMode: MANUAL
+          report_update_topic:           # 修改es中的日志
+            consumer:
+              acknowledgeMode: MANUAL    # 手动ack
   rabbitmq:
     port: 5672
     username: admin
